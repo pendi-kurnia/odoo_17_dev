@@ -69,7 +69,9 @@ define upgrade_addon
 		-d $(WEB_DB_NAME) \
 		-r $(USER) \
 		-w $(PASSWORD) \
+		--dev=xml \
 		-u $(1)
+		
 endef
 
 addon: restart

@@ -6,26 +6,28 @@ class EstateProperty(models.Model):
     _name = "estate.property"
     _description = "Real Estate Property"
 
-    name = fields.Char(required=True)
+    name = fields.Char(required=True, string="Title")
     description = fields.Text()
     postcode = fields.Char()
-    date_availability = fields.Date(copy=False, default=lambda self: (fields.Datetime.now() + relativedelta(months=3)))
-    expected_price = fields.Float(required=True)
-    selling_price = fields.Float(readonly=True, copy=False)
+    date_availability = fields.Date(copy=False, default=lambda self: (fields.Datetime.now() + relativedelta(months=3)), string="Available From")
+    expected_price = fields.Float(required=True, string="Expected Price")
+    selling_price = fields.Float(readonly=True, copy=False, string="Selling Price")
     bedrooms = fields.Integer(default=2)
-    living_area = fields.Integer()
+    living_area = fields.Integer( string=" Living Area (sqm)")
     facades = fields.Integer()
     garage = fields.Boolean()
     garden = fields.Boolean()
-    garden_area = fields.Integer()
+    garden_area = fields.Integer(string=" Garden Area (sqm)")
     garden_orientation = fields.Selection(
-        [
-            ('north', 'North'),
-            ('south', 'South'),
-            ('east', 'East'),
-            ('west', 'West')
-        ]
-    )
+    [
+        ('north', 'North'),
+        ('south', 'South'),
+        ('east', 'East'),
+        ('west', 'West'),
+    ],
+    string="Garden Orientation",
+    default='north'
+)
     active = fields.Boolean(default=False)
     state = fields.Selection(
         [
