@@ -9,4 +9,20 @@
               name="Properties"
               parent="estate_property_first_level_menu"
               action="estate_property_action"/>
+
+    <menuitem id="estate_property_type_setting_menu"
+              name="Setting"
+              parent="estate_property_root"/>
+
+    <menuitem id="estate_property_type_menu_action"
+              name="Property Type"
+              parent="estate_property_type_setting_menu"
+              action="estate_property_type_action"/>
+
+    <menuitem id="estate_property_tag_menu_action"
+              name="Property Tags"
+              parent="estate_property_type_setting_menu"
+              action="estate_property_tag_action"/> 
+
+
 </odoo>
